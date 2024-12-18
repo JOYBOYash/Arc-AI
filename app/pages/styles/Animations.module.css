@@ -1,0 +1,61 @@
+@keyframes scale {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+/* Animations.module.css */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  height: 500px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-content {
+  display: flex;
+  width: 200%; /* Ensure seamless looping */
+  animation: marquee 15s linear infinite;
+}
+
+/* Pause animation on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.marquee-items {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.marquee-item {
+  transition: all 0.3s ease-in-out;
+  filter: blur(2px);
+  opacity: 0.6;
+  margin-right: -120px;
+}
+
+/* Focus effect on hovered item */
+.marquee-item:hover {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1.1);
+  z-index: 10;
+}
